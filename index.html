@@ -2,65 +2,100 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>¿Mi San Valentín?</title>
+
 <style>
     body {
+        margin: 0;
+        padding: 0;
         background: linear-gradient(135deg, #ff6a88, #ff99ac);
         font-family: 'Comic Sans MS', cursive, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
         text-align: center;
-        padding-top: 60px;
         color: white;
     }
+
+    .container {
+        width: 90%;
+        max-width: 500px;
+        padding: 20px;
+    }
+
     h1 {
-        font-size: 42px;
+        font-size: clamp(24px, 6vw, 36px);
         text-shadow: 2px 2px 5px #d6336c;
     }
+
     img {
-        margin-top: 20px;
-        width: 250px;
+        width: 80%;
+        max-width: 280px;
+        margin: 20px 0;
         border-radius: 20px;
         box-shadow: 0px 0px 20px rgba(255,255,255,0.8);
     }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
     button {
+        padding: 15px;
+        font-size: 18px;
+        border-radius: 30px;
+        border: none;
+        cursor: pointer;
         background-color: white;
         color: #ff2e63;
-        border: none;
-        padding: 15px 30px;
-        margin: 20px;
-        font-size: 20px;
-        border-radius: 30px;
-        cursor: pointer;
         transition: 0.3s;
     }
+
     button:hover {
         background-color: #ff2e63;
         color: white;
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
+
     #respuesta {
-        margin-top: 40px;
-        font-size: 26px;
+        margin-top: 30px;
+        font-size: clamp(18px, 5vw, 24px);
         font-weight: bold;
         text-shadow: 1px 1px 4px #000;
     }
+
+    @media (min-width: 600px) {
+        .buttons {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
 </style>
 </head>
+
 <body>
 
-<h1>Enrique… ¿quieres ser mi San Valentín? 💖</h1>
+<div class="container">
+    <h1>Enrique… ¿quieres ser mi San Valentín? 💖</h1>
 
-<img src="assets/images/f1456x819-892097_1062467_5050.jpg" alt="Valentín Elizalde">
+    <img src="valentin.jpg" alt="Valentín Elizalde">
 
-<br>
+    <div class="buttons">
+        <button onclick="respuesta()">Sí 💘</button>
+        <button onclick="respuesta()">Obviamente sí 😍</button>
+    </div>
 
-<button onclick="respuesta()">Sí 💘</button>
-<button onclick="respuesta()">Obviamente sí 😍</button>
-
-<div id="respuesta"></div>
+    <div id="respuesta"></div>
+</div>
 
 <script>
 function respuesta() {
-    document.getElementById("respuesta").innerHTML = 
+    document.getElementById("respuesta").innerHTML =
     "Sabía que dirías que sí 💕 Valentín estaría orgulloso de este amor tan bonito ✨🎶";
 }
 </script>
